@@ -26,6 +26,7 @@ message=${message//|/\\n}
 
 #build json
 jsonstring="{\"token\":\"$api_token\",\"channel\":\"$channel\",\"username\":\"$username\",\"text\":\"$message\",\"icon_emoji\":\":ghost:\"}"
+echo $jsonstring > /tmp/slack_git_msg
 
 #call curl
 curl -i -X POST -H 'Accept: application/json' -H "Content-Type: application/json; charset=ascii"  --data @/tmp/slack_git_msg $url
